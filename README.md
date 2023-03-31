@@ -2,14 +2,14 @@
 
 # Project: Tic Tac Toe
 
-## Live Demo :point_right: <a href="">A game of tic tac toe</a>
+## Live Demo :point_right: [A game of tic tac toe]()
 
 ## PC View :point_down:
 <img>
 
 ## Overview
 
-<a href="">Project Tic Tac Toe</a> has been set as part of <a href="https://www.theodinproject.com/">The Odin project</a>. Making sure to use as little global code as possible by tucking everthing away inside of a module or factory. Skills learnt from the prevoiuse lesson <a href="https://www.theodinproject.com/lessons/node-path-javascript-factory-functions-and-the-module-pattern">Factory Functions & The Module Pattern</a>.
+<a href="">Project Tic Tac Toe</a> has been set as part of <a href="https://www.theodinproject.com/">The Odin project</a>. Create a game of tic tac toe whilst ensuring to use as little global code as possible, by tucking everthing away inside of a module or factory. Skills learnt from the prevoiuse lesson <a href="https://www.theodinproject.com/lessons/node-path-javascript-factory-functions-and-the-module-pattern">Factory Functions & The Module Pattern</a>.
 
 ## Assets
 
@@ -36,6 +36,6 @@ Start by just getting the computer to make a random legal move.
           
 
 
-***<a href="https://twitter.com/Crypto_Rozla">Rozla-Dev</a> 31-03-2023***  
+<p style="text-align: center;">***<a href="https://twitter.com/Crypto_Rozla"> Rozla-Dev </a> 31-03-2023***</p>
 
 [Back to top 👆](#project-tic-tac-toe)
