@@ -34,6 +34,8 @@ Start by just getting the computer to make a random legal move.
 
 <img width="100" alt="javascript" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" /> <img width="100" alt="HTML5" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg" /> <img width="100" alt="CSS3" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg" />
           
-          
 
-***Rozla-Dev 31-03-2023***                    [Back to top](#project-tic-tac-toe)
+
+***<a href="https://twitter.com/Crypto_Rozla">Rozla-Dev</a> 31-03-2023***  
+
+[Back to top 👆](#project-tic-tac-toe)
