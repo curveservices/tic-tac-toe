@@ -36,6 +36,6 @@ Start by just getting the computer to make a random legal move.
           
 
 
-<p style="text-align: center;">***<a href="https://twitter.com/Crypto_Rozla"> Rozla-Dev </a> 31-03-2023***</p>
+***<a href="https://twitter.com/Crypto_Rozla"> Rozla-Dev </a> 31-03-2023***
 
 [Back to top 👆](#project-tic-tac-toe)
