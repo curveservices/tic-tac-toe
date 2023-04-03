@@ -1,1 +1,180 @@
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&family=Rubik+Marker+Hatch&display=swap');
+
+* {
+    /* box-sizing: border-box; */
+    cursor: default;
+}
+
+:root {
+    --background-dark: #666 radial-gradient(
+        rgb(194, 0, 107),
+        rgba(0,0,0,0.7));
+    --background-light: #666 radial-gradient(
+        rgba(175, 175, 175, 0.4),
+        rgb(255, 255, 255));
+    --text-shadow:  0.1em 0.1em 0.2em rgba(0,0,0,0.5);
+}
+
+body {
+    margin: 0;
+    font-family: 'Rubik Marker Hatch', cursive;
+    align-items: center;
+    background: var(--background-dark);
+    /* background: #666 radial-gradient(
+        rgba(255,255,255,0.4),
+        rgba(0,0,0,0.7)); */
+    color: #ccc;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 12pt;
+    min-height: 100vh;
+    text-shadow: var(--text-shadow)
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+i {
+    align-items: center;
+    cursor: pointer;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+main {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(3, minmax(100px, auto));
+    grid-template-rows: repeat(3, minmax(100px, auto));
+    gap: 1rem;
+    margin: 0; 
+}
+
+.square {
+    /* background-color: rgba(0, 0, 0, 0.2); */
+    border: 1px solid #000;
+    border-radius: 5%;
+    box-shadow: inset 1px 1px 10px;
+    cursor: pointer;
+    height: 100%;
+    padding: 2px;
+    transition: all 0.2s ease-out;
+    width: 100%;
+}
+
+/* .square:first-child,
+.square:nth-child(2),
+.square:nth-child(3) {
+    border-top: none;
+}
+
+.square:nth-child(3n + 1){
+    border-left: none;
+}
+
+.square:nth-child(3n + 3){
+    border-right: none;
+}
+
+.square:last-child,
+.square:nth-child(8),
+.square:nth-child(7) {
+    border-bottom: none;
+} */
+
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 0.5rem;
+    margin-top: 3rem;
+    
+}
+
+
+.footer {
+    /* position: fixed; */
+    /* bottom:0; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: 'Rock Salt', cursive;
+    text-align: center;
+    margin: 1.5rem;
+    font-size: 12px;
+    width: 100%;
+}
+
+.footer-link,
+a {
+    font-family: 'Rock Salt', cursive;
+    text-decoration: none;
+    color: var(--background)
+}
+ 
+.bi-github{
+    display: flex;
+    justify-items: center;
+    margin: 0px; 
+}
+
+@media only screen and (min-width:500px) {
+    * {
+        box-sizing: border-box; 
+    }
+
+    header {
+        font-size: 1rem;
+        max-width: 70vmin;
+        justify-content: space-between;
+    }
+
+    main {
+        width: 30rem;
+        height: 30rem;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+    
+    .controls {
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 2rem;
+        margin: 2rem;
+    }
+
+    .footer {
+        /* position: fixed; */
+        /* bottom:0; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.7rem;
+        font-family: 'Rock Salt', cursive;
+        text-align: center;
+        margin: 1rem;
+        width: 100%;
+    }
+    
+    .footer-link,
+    a {
+        font-family: 'Rock Salt', cursive;
+        text-decoration: none;
+        color: var(--blue);
+    }
+     
+    .bi-github{
+        display: flex;
+        justify-items: center;
+        margin: 0px; 
+        font-size: 1.5rem;
+    }
+}
