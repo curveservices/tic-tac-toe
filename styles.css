@@ -57,15 +57,23 @@ main {
 }
 
 .square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 2px;
+    font-size: 3rem;
     /* background-color: rgba(0, 0, 0, 0.2); */
     border: 1px solid #000;
     border-radius: 5%;
     box-shadow: inset 1px 1px 10px;
     cursor: pointer;
-    height: 100%;
-    padding: 2px;
-    transition: all 0.2s ease-out;
-    width: 100%;
+    transform: 0.1s ease-in-out;
+}
+.square::after,
+.sqaure:hover {
+    transform: scale(1.1);
 }
 
 /* .square:first-child,
@@ -143,6 +151,10 @@ a {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(3, 1fr);
     }
+
+    .square {
+        font-size: 7rem;
+    }
     
     .controls {
         flex-direction: row;
@@ -165,16 +177,42 @@ a {
     }
     
     .footer-link,
-    a {
-        font-family: 'Rock Salt', cursive;
+    .footer-link:visited,
+    .footer-link:link {
         text-decoration: none;
-        color: var(--blue);
+        text-shadow: var(--text-shadow);
+        transition: all 0.2s ease-out;
+    }
+
+    .footer-link:hover, 
+    .footer-link:focus, 
+    .footer-link:active {
+        text-decoration: underline;
+        text-shadow: 0 0 0.2em #fff;
     }
      
-    .bi-github{
+    .bi-github {
         display: flex;
         justify-items: center;
         margin: 0px; 
         font-size: 1.5rem;
+        transition: all 0.3s ease-out;
+        filter: drop-shadow(0.15em 0.15em, 0.15em #000)
     }
+
+    .bi-brightness-high-fill,
+    .bi-moon {
+        filter: drop-shadow(0.15em 0.15em, 0.15em #000)
+    }
+
+    .bi-github:hover,
+    .bi-github:focus,
+    .bi-moon:hover,
+    .bit-moon:focus,
+    .bi-brightness-high-fill:hover,
+    .bi-brightness-high-fill:focus {
+        transform: rotate(720deg) scale(1.2);
+        filter: drop-shadow(0 0 0.3em #fff);
+    }
+    
 }
