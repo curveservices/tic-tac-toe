@@ -5,31 +5,29 @@ const Gameboard = (() => {
     const render = () => {
       let boardHTML = "";
       gameboard.forEach((square, index) => {
-        boardHTML += `<div class="square" id="square-${index} ${square}"></div>`
+        boardHTML += `<div class="square" id="square-${index}">${square}</div>`
       })
       document.querySelector('#gameboard').innerHTML = boardHTML;
+      const squares = document.querySelectorAll('.square')
+      squares.forEach((square) => {
+        square.addEventListener('click', Game.handleClick);
+    })
     }
-
     const update = (index, value) => {
       gameboard[index] = value;
+      render();
     }
-
     return { 
       render,
       update,
     }
 })();
 
-/**
- * players also need to be stored in objects
- * If need multiples of something (players!), create with factories
- * need an object to control the flow of the game.
-*/
 // Player factory
 const createPlayer = (name, mark) => {
   return {
     name,
-    mark
+    mark,
   }
 }
 
@@ -42,7 +40,7 @@ const Game = (() => {
   const start = () => {
     players = [
       createPlayer(document.querySelector('#player1').value, 'X'),
-      createPlayer(document.querySelector('#player2').value, '0')
+      createPlayer(document.querySelector('#player2').value, 'O')
     ]
     currentPlayerIndex = 0;
     gameOver = false;
@@ -52,14 +50,14 @@ const Game = (() => {
       square.addEventListener('click', handleClick);
     })
   }
-
   const handleClick = (event) => {
     let index = parseInt(event.target.id.split("-")[1]);
-    Game.update(index, players[currentPlayerIndex].mark);
+    Gameboard.update(index, players[currentPlayerIndex].mark);
+      currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
   }
-
   return {
     start,
+    handleClick
   }
 })();
 
@@ -158,7 +156,7 @@ const body = document.querySelector('body');
 toggle.addEventListener('click', function() {
   this.classList.toggle('bi-brightness-high-fill');
   if (this.classList.toggle('bi-moon')) {
-    body.style.background = 'var(--background-light)';
+    body.style.background = 'white';
     body.style.color = '#012';
     body.style.transition = '0.1s'
   } else {
