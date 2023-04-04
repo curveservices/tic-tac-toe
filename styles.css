@@ -4,13 +4,14 @@
     /* box-sizing: border-box; */
     cursor: default;
 }
-
+/* rgba(175, 175, 175, 0.4), */ 
 :root {
     --background-dark: #666 radial-gradient(
-        rgb(194, 0, 107),
-        rgba(0,0,0,0.7));
+        #ff018c,
+        #000000b3);
     --background-light: #666 radial-gradient(
-        rgba(175, 175, 175, 0.4),
+        
+        #00fe73,
         rgb(255, 255, 255));
     --text-shadow:  0.1em 0.1em 0.2em rgba(0,0,0,0.5);
 }
@@ -132,6 +133,7 @@ a {
     display: flex;
     justify-items: center;
     margin: 0px; 
+    font-size: 18px;
 }
 
 @media only screen and (min-width:500px) {
@@ -160,12 +162,10 @@ a {
         flex-direction: row;
         justify-content: space-around;
         gap: 2rem;
-        margin: 2rem;
+        margin-top: 1.5rem;
     }
 
     .footer {
-        /* position: fixed; */
-        /* bottom:0; */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -173,6 +173,7 @@ a {
         font-family: 'Rock Salt', cursive;
         text-align: center;
         margin: 1rem;
+        padding: 1rem;
         width: 100%;
     }
     
