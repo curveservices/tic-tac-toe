@@ -16,10 +16,14 @@ const Gameboard = (() => {
     const update = (index, value) => {
       gameboard[index] = value;
       render();
-    }
+    };
+
+    const getGameboard = () => gameboard;
+
     return { 
       render,
       update,
+      getGameboard
     }
 })();
 
@@ -51,10 +55,14 @@ const Game = (() => {
     })
   }
   const handleClick = (event) => {
-    let index = parseInt(event.target.id.split("-")[1]);
-    Gameboard.update(index, players[currentPlayerIndex].mark);
+      let index = parseInt(event.target.id.split("-")[1]);
+      if (Gameboard.getGameboard()[index] !=='')
+        return;
+      
+      Gameboard.update(index, players[currentPlayerIndex].mark);
       currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
   }
+
   return {
     start,
     handleClick
@@ -156,8 +164,8 @@ const body = document.querySelector('body');
 toggle.addEventListener('click', function() {
   this.classList.toggle('bi-brightness-high-fill');
   if (this.classList.toggle('bi-moon')) {
-    body.style.background = 'white';
-    body.style.color = '#012';
+    body.style.background = 'var(--background-light)';
+    body.style.color = '#000';
     body.style.transition = '0.1s'
   } else {
     body.style.background = 'var(--background-dark';
