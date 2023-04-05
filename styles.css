@@ -10,8 +10,7 @@
         #ff018c,
         #000000b3);
     --background-light: #666 radial-gradient(
-        
-        #00fe73,
+        /* #00fe73, */
         rgb(255, 255, 255));
     --text-shadow:  0.1em 0.1em 0.2em rgba(0,0,0,0.5);
 }
@@ -65,8 +64,8 @@ main {
     height: 100%;
     padding: 2px;
     font-size: 3rem;
-    /* background-color: rgba(0, 0, 0, 0.2); */
-    border: 1px solid #000;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid #ccc;
     border-radius: 5%;
     box-shadow: inset 1px 1px 10px;
     cursor: pointer;
@@ -77,7 +76,7 @@ main {
     transform: scale(1.1);
 }
 
-/* .square:first-child,
+.square:first-child,
 .square:nth-child(2),
 .square:nth-child(3) {
     border-top: none;
@@ -95,8 +94,7 @@ main {
 .square:nth-child(8),
 .square:nth-child(7) {
     border-bottom: none;
-} */
-
+}
 
 .controls {
     display: flex;
@@ -106,7 +104,6 @@ main {
     margin-top: 3rem;
     
 }
-
 
 .footer {
     /* position: fixed; */
@@ -155,7 +152,7 @@ a {
     }
 
     .square {
-        font-size: 7rem;
+        font-size: 7rem;   
     }
     
     .controls {
