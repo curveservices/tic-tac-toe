@@ -1,11 +1,13 @@
-// Use module || factory. store gameboard as array inside a Gameboard object 
+// Use module || factory. store gameboard as array inside a Gameboard object
+// Each little piece of functionality should be able to fit in the game, player or gameboard objects.  
+// JS function that renders game conents array to webpage.
+
 const Gameboard = (() => {
     let gameboard = ['', '', '', '', '', '', '', '', ''];
-    
     const render = () => {
       let boardHTML = "";
       gameboard.forEach((square, index) => {
-        boardHTML += `<div class="square" id="square-${index}">${square}</div>`
+        boardHTML += `<div class="square" id="${index}">${square}</div>`
       })
       document.querySelector('#gameboard').innerHTML = boardHTML;
       const squares = document.querySelectorAll('.square')
@@ -17,36 +19,35 @@ const Gameboard = (() => {
       gameboard[index] = value;
       render();
     };
-
     const getGameboard = () => gameboard;
 
     return { 
       render,
       update,
-      getGameboard
+      getGameboard,
     }
 })();
 
 // Player factory
-const createPlayer = (name, mark) => {
+const Player = (name, mark) => {
   return {
     name,
     mark,
   }
-}
+};
 
-// game module 
+// Game module 
 const Game = (() => {
   let players = [];
-  let currentPlayerIndex;
+  let currentPlayer;
   let gameOver;
-
+// functions that lets player add marks to squares on board then tie it to the DOM. 
   const start = () => {
     players = [
-      createPlayer(document.querySelector('#player1').value, 'X'),
-      createPlayer(document.querySelector('#player2').value, 'O')
+      Player(document.querySelector('#player1').value, 'X'),
+      Player(document.querySelector('#player2').value, 'O')
     ]
-    currentPlayerIndex = 0;
+    currentPlayer = 0;
     gameOver = false;
     Gameboard.render();
     const squares = document.querySelectorAll('.square')
@@ -54,57 +55,21 @@ const Game = (() => {
       square.addEventListener('click', handleClick);
     })
   }
-  const handleClick = (event) => {
-      let index = parseInt(event.target.id.split("-")[1]);
+  
+  const handleClick = (e) => {
+      let index = (e.target.id);
+      // logic that stops players from playing same squares twice
       if (Gameboard.getGameboard()[index] !=='')
         return;
-      
-      Gameboard.update(index, players[currentPlayerIndex].mark);
-      currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
+      Gameboard.update(index, players[currentPlayer].mark);
+      currentPlayer = currentPlayer === 0 ? 1 : 0;
   }
 
-  return {
-    start,
-    handleClick
-  }
-})();
-
-/**
- * Clean up the interface to allow players to put in their names, 
- * include a button to start/restart the game and 
- * add a display element that congratulates the winning player!
- */
-const startButton = document.querySelector('#start-button');
-startButton.addEventListener('click', () => {
-  console.log('hello')
-  Game.start();
-});
-
-// function GameController(playerOne, playerTwo) {
-//     playerOne = playerOne
-//     playerTwo = playerTwo
-// }
-
-// JS function that will render game conents array to webpage.
-
-/** 
- * build the functions that allow player to ad marks to 
- * spot on the board then tie it to the DOM. 
- * letting players click on the gameboard to place their marker. 
- * Don’t forget the logic that keeps players from playing
- * in spots that are already taken.
- * Think carefully about where each bit of logic should reside. 
- * Each little piece of functionality should be able to fit in the game, 
- * player or gameboard objects. 
- * Take care to put them in “logical” places. 
- * Spending a little time brainstorming here can make your life much easier later! 
-*/
-
-/** 
+  /** 
  * Function that checks when the game is over! 
  * Should check for 3-in-a-row and a tie.
 */
-// const checkWinningCondition = (board, marker) => {
+// const checkWinner = (board, marker) => {
 //     const winningCombinations = [
 //       [0, 1, 2], [3, 4, 5], [6, 7, 8], // horizontal
 //       [0, 3, 6], [1, 4, 7], [2, 5, 8], // vertical
@@ -112,6 +77,36 @@ startButton.addEventListener('click', () => {
 //     ];
 //     return winningCombinations.some(combination => combination.every(index => board[index] === marker));
 //   };
+
+  const restart = () => {
+    for (let i = 0; i < 9; i++) {
+      Gameboard.update(i,'');
+    }
+    Gameboard.render();
+  }
+  return {
+    start,
+    handleClick,
+    restart,
+  }
+})();
+
+// include a button to start/restart the game
+const startButton = document.querySelector('#start-button');
+startButton.addEventListener('click', () => {
+  console.log('hello')
+  Game.start();
+});
+
+const restartButton = document.querySelector('#restart');
+restartButton.addEventListener('click', () => {
+  Game.restart();
+})
+
+
+// add a display that gratz the winning player!
+
+
 
 /**
  * create an AI so that a player can play against the computer!
@@ -166,10 +161,10 @@ toggle.addEventListener('click', function() {
   if (this.classList.toggle('bi-moon')) {
     body.style.background = 'var(--background-light)';
     body.style.color = '#000';
-    body.style.transition = '0.1s'
+    body.style.transition = '0.1s';
   } else {
     body.style.background = 'var(--background-dark';
     body.style.color = '#ccc';
-    body.style.transition = '0.1s'
+    body.style.transition = '0.1s';
   }
 });
