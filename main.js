@@ -1,9 +1,9 @@
-// Use module || factory. store gameboard as array inside a Gameboard object
-// Each little piece of functionality should be able to fit in the game, player or gameboard objects.  
-// JS function that renders game conents array to webpage.
-
+// Use module || factory. 
+// Each piece of functionality should fit  game, player or gameboard objects.  
+// Gameboard module. store gameboard as array 
 const Gameboard = (() => {
     let gameboard = ['', '', '', '', '', '', '', '', ''];
+// JS function that renders game conents array to webpage.
     const render = () => {
       let boardHTML = "";
       gameboard.forEach((square, index) => {
@@ -28,10 +28,19 @@ const Gameboard = (() => {
     }
 })();
 
-// Display module that gratz the winning player!
+// Display module that congrats the winning player!
+const displayModule = (() => {
+  const renderMessage = (message) => {
+  document.querySelector('#message').innerHTML = message;
+  }
+  return {
+    renderMessage,
+  }
+  
+})();
 
 // Player factory function
-const createPlayer = (name, mark) => {
+const Player = (name, mark) => {
   return { name, mark };
 };
 
@@ -43,13 +52,15 @@ const Game = (() => {
   // functions that lets player add marks to squares on board then tie it to the DOM. 
   const start = () => {
     players = [
-      createPlayer(document.querySelector('#player1').value, 'X'),
-      createPlayer(document.querySelector('#player2').value, 'O')
+      Player(document.querySelector('#player1').value, 'X'),
+      Player(document.querySelector('#player2').value, 'O')
     ]
 
     currentPlayerindex = 0;
     gameOver = false;
     Gameboard.render();
+    const startGame = document.querySelector('.show')
+    startGame.classList.remove('show');
     const squares = document.querySelectorAll('.square')
     squares.forEach((square) => {
       square.addEventListener('click', handleClick);
@@ -59,7 +70,6 @@ const Game = (() => {
   // include a button to start/restart the game
   const startButton = document.querySelector('#start-button');
   startButton.addEventListener('click', () => {
-    console.log('hello')
     Game.start();
   });
 
@@ -69,7 +79,7 @@ const Game = (() => {
   });
   
   const handleClick = (e) => {
-    // logic that stops players from playing same squares twice
+// logic that stops players from playing same squares twice
     if (gameOver)
       return;
     let index = (e.target.id);
@@ -77,13 +87,17 @@ const Game = (() => {
       return;
     
     Gameboard.update(index, players[currentPlayerindex].mark);
-    // check when game over! should check 3-in-a-row and tie
+    const endGame = document.querySelector('#winningMessage')
+// check when game over! should check 3-in-a-row and tie
     if (checkForWin(Gameboard.getGameboard(), players[currentPlayerindex].mark)) {
       gameOver = true;
-      displayModule.renderMessage(`Congrats ${players[currentPlayerindex].name} you Win!`)
+      displayModule.renderMessage(`Congrats ${players[currentPlayerindex].name}, you Win!`)
+      endGame.classList.add('show');
+
     } else if (checkForTie(Gameboard.getGameboard())) {
       gameOver = true;
       displayModule.renderMessage(`It's a tie`);
+      endGame.classList.add('show');
     }
     currentPlayerindex = currentPlayerindex === 0 ? 1 : 0;
   };
@@ -94,7 +108,7 @@ const Game = (() => {
       [0, 3, 6], [1, 4, 7], [2, 5, 8], // vertical
       [0, 4, 8], [2, 4, 6] // diagonal
     ];
-    return winningCombinations.some(combination => combination.every(index => board[index] === mark))
+    return winningCombinations.some(combination => combination.every(index => board[index] === mark));
   };
 
   const checkForTie = (board) => {
@@ -104,8 +118,14 @@ const Game = (() => {
   const restart = () => {
     for (let i = 0; i < 9; i++) {
       Gameboard.update(i,'');
+      const endGame = document.querySelector('#winningMessage');
+      endGame.classList.remove('show');
     }
     Gameboard.render();
+    gameOver = false;
+    currentPlayerindex = 0;
+    document.querySelector('#message').innerHTML = '';
+    
   }
 
   return {
@@ -113,10 +133,26 @@ const Game = (() => {
     handleClick,
     restart,
     checkForWin,
-    checkForTie
-
+    checkForTie,
   }
 })();
+
+// dark / light mode
+// const toggle = document.getElementById('toggle-dark');
+// const body = document.querySelector('body');
+
+// toggle.addEventListener('click', function() {
+//   this.classList.toggle('bi-brightness-high-fill');
+//   if (this.classList.toggle('bi-moon')) {
+//     body.style.background = 'var(--background-light)';
+//     body.style.color = '#000';
+//     body.style.transition = '0.1s';
+//   } else {
+//     body.style.background = 'var(--background-dark';
+//     body.style.color = 'white';
+//     body.style.transition = '0.1s';
+//   }
+// });
 
 /**
  * create an AI so that a player can play against the computer!
@@ -125,19 +161,3 @@ const Game = (() => {
  * It is possible to create an unbeatable AI using the minimax algorithm 
  * (read about it here, some googling will help you out with this one)
  */
-// dark / light mode
-const toggle = document.getElementById('toggle-dark');
-const body = document.querySelector('body');
-
-toggle.addEventListener('click', function() {
-  this.classList.toggle('bi-brightness-high-fill');
-  if (this.classList.toggle('bi-moon')) {
-    body.style.background = 'var(--background-light)';
-    body.style.color = '#000';
-    body.style.transition = '0.1s';
-  } else {
-    body.style.background = 'var(--background-dark';
-    body.style.color = '#ccc';
-    body.style.transition = '0.1s';
-  }
-});

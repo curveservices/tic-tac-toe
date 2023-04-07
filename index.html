@@ -14,21 +14,28 @@
 
     <header class="title">
         <h1 class="title">TIC - TAC - TOE</h1>
-        <i class="bi-brightness-high-fill" id="toggle-dark" width="45px"></i>
+        <a href="https://github.com/curveservices/tic-tac-toe" target="_blank"><i class="bi bi-github" width="45px"></i></a>
+        <!-- <i class="bi-brightness-high-fill" id="toggle-dark" width="45px"></i> -->
     </header>
 
-    <main class="game-board" id="gameboard"></main>
-    <div id="message"></div>
-    <div id="result-display"></div>
-    <div class="controls">
-        <input type="text" id="player1" placeholder="Player 1 Name">
-        <input type="text" id="player2" placeholder="Player 2 Name">
-        <button id="start-button">Start Game</button>
+    <main class="game-board x o" id="gameboard"></main>
+
+    <div class="winning-message" id="winningMessage">
+        <div class="message" id="message"></div>
         <button id="restart">Restart Game</button>
     </div>
-    
+
+    <div class="controls show">
+        <h1>PLAY A GAME OF TIC-TAC-TOE?</h1>
+        <label for="player1">X's goes first</label>
+        <input type="text" id="player1" placeholder="Player 'X' Name" required>
+        <label for="player2">O's goes second</label>
+        <input type="text" id="player2" placeholder="Player 'O' Name" required>
+       
+        <button id="start-button">Start Game</button>
+        
+    </div>
             
-    <footer class="footer">Built by <a class="footer-link" href="https://github.com/curveservices" target="_blank">Rozla-Dev</a> | <a class="footer-link" href="https://github.com/curveservices/Library" target="_blank" >Source </a><a href="https://github.com/curveservices/tic-tac-toe" target="_blank"><i class="bi bi-github"></i></a></footer>
-    
+    <footer class="footer">Built by <a class="footer-link" href="https://github.com/curveservices" target="_blank">Rozla-Dev</a> | <a class="footer-link" href="https://github.com/curveservices/Library" target="_blank" >Source </a><a class="icon" href="https://github.com/curveservices/tic-tac-toe" target="_blank"><i class="bi bi-github"></i></a></footer>   
 </body>
 </html>
