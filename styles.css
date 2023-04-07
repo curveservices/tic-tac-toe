@@ -21,7 +21,7 @@
 }
 
 body {
-    margin: 0;
+    margin: 2rem;
     font-family: 'Rubik Marker Hatch', cursive;
     align-items: center;
     background: var(--background-dark);
@@ -39,7 +39,8 @@ header {
     align-items: center;
     gap: 6.3rem;
     font-size: 0.75rem;
-    margin-top: 3rem;
+    margin-top: 1rem;
+    
 }
 
 i {
@@ -229,8 +230,9 @@ a {
     }
 
     header {
-        font-size: 2rem;
+        font-size: 1rem;
         gap: 11.5rem;
+        margin: 1rem 0rem
     }
 
     main {
