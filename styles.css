@@ -40,7 +40,6 @@ header {
     gap: 6.3rem;
     font-size: 0.75rem;
     margin-top: 3rem;
-    /* width: 100%; */
 }
 
 i {
@@ -230,9 +229,8 @@ a {
     }
 
     header {
-        font-size: 1rem;
+        font-size: 2rem;
         gap: 11.5rem;
-        margin: 1rem 0rem
     }
 
     main {
