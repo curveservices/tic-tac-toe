@@ -1,11 +1,9 @@
-## 🚫 UNDER CONSTRUCTION 🚫
-
 # Project: Tic Tac Toe
 
-## Live Demo :point_right: [A game of tic tac toe]()
+## Live Demo :point_right: <a href="https://curveservices.github.io/tic-tac-toe/">A game of tic tac toe</a>
 
 ## PC View :point_down:
-<img>
+<img width="624" alt="Screenshot 2023-04-07 at 13 16 10" src="https://user-images.githubusercontent.com/101556296/230607326-48a15036-69c6-4089-bd16-f36d493116e0.png">
 
 ## Overview
 
@@ -26,13 +24,14 @@
 
 ## Extra Credit
 
-- If you’re feeling ambitious create an AI so that a player can play against the computer!
+- Create an AI so that a player can play against the computer!
 Start by just getting the computer to make a random legal move.
-- Once you’ve gotten that, work on making the computer smart. It is possible to create an unbeatable AI using the minimax algorithm
+- Work on making the computer smart. It is possible to create an unbeatable AI using the minimax algorithm
 
 ## Languages & Tools
 
-<img width="100" alt="javascript" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" /> <img width="100" alt="HTML5" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg" /> <img width="100" alt="CSS3" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg" />
+<img width="100" alt="javascript" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" /> <img width="110" alt="HTML5" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg" /> <img width="110" alt="CSS3" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg" /> <img width='105' alt='git'src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" />
+          
           
 
 
