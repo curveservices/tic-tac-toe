@@ -29,7 +29,7 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    /* height: 100vh; */
+    height: 100vh;
     text-shadow: var(--text-shadow)
 }
 
@@ -132,7 +132,8 @@ main {
     bottom: 0;
     gap: 2rem;
     text-transform: uppercase;
-    background-color: rgba(0,0,0, 0.6);
+    background-color: rgba(0,0,0, 0.7);
+    transition:ease-in-out;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
@@ -153,7 +154,8 @@ main {
     bottom: 0;
     gap: 2rem;
     text-transform: uppercase;
-    background-color: rgba(0,0,0, 0.6);
+    background-color: rgba(0,0,0, 0.7);
+    transition:ease-in-out;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
